@@ -26,6 +26,8 @@ import path from 'node:path';
 // ─── Constants ───
 
 const HEADER_RE = /^<!--\s*packrat:v(\d+)\s+codebook:(.+?)\s*-->/m;
+const ESC_DOLLAR = '\uE000'; // Escape marker for $ codes
+const ESC_HASH = '\uE001';   // Escape marker for # codes
 
 const STOP_WORDS = new Set([
   'a','an','the','and','or','but','in','on','at','to','for','of','is','it',
@@ -182,7 +184,7 @@ export function learn(dirs, codebook, opts = {}) {
   }
 
   // Filter phrases
-  const PHRASE_BLACKLIST = /^(let me|i'll|user:|muxie:|assistant:|- user|- muxie|# conversation|conversation summary|memory from|saved to vault|you're right|from earlier)/i;
+  const PHRASE_BLACKLIST = /^(let me|i'll|user:|assistant:|agent:|- user|- agent|# conversation|conversation summary|memory from|saved to vault|you're right|from earlier)/i;
   const phraseCandidates = Object.entries(phraseFreq)
     .filter(([p, f]) => f >= minFreq && !PHRASE_BLACKLIST.test(p))
     .sort((a, b) => (b[1] * b[0].length) - (a[1] * a[0].length))
@@ -209,11 +211,26 @@ export function learn(dirs, codebook, opts = {}) {
 export function compress(text, codebook) {
   const pairs = codebook.allPairs();
   let out = text;
+
+  // Escape literal code-like tokens (e.g. $K in source text) BEFORE compression
+  // so they don't get falsely expanded during decompression.
+  // $K → \uE000K, #D → \uE001D (separate escape chars prevent cross-contamination)
+  const allCodes = pairs.map(p => p.code);
+  // Process longest first to avoid partial matches
+  const sortedCodes = [...allCodes].sort((a, b) => b.length - a.length);
+  for (const code of sortedCodes) {
+    const esc = code.startsWith('#') ? ESC_HASH : ESC_DOLLAR;
+    const escaped = _escRe(code);
+    out = out.replace(new RegExp(escaped, 'g'), `${esc}${code.slice(1)}`);
+  }
+
   for (const { code, text: pattern } of pairs) {
     const escaped = _escRe(pattern);
+    // Case-SENSITIVE matching — preserves round-trip fidelity.
+    // Case-sensitive: "myEntity" and "MyEntity" need separate codebook entries.
     const re = code.startsWith('$p')
-      ? new RegExp(escaped, 'gi')
-      : new RegExp(`\\b${escaped}\\b`, 'gi');
+      ? new RegExp(escaped, 'g')
+      : new RegExp(`\\b${escaped}\\b`, 'g');
     out = out.replace(re, code);
   }
   return `<!-- packrat:v1 codebook:${codebook.path} -->\n${out}`;
@@ -244,10 +261,21 @@ export function compressFile(filePath, codebook, inPlace = false) {
  * @returns {string}
  */
 export function decompress(compressed, codebook) {
-  let text = compressed.replace(HEADER_RE, '').trim();
-  const pairs = codebook.allPairs().reverse(); // shortest first for safe expansion
+  // Strip header line only (preserve all other whitespace for round-trip fidelity)
+  let text = compressed.replace(/^<!--\s*packrat:v\d+\s+codebook:.+?-->\n?/, '');
+  // Sort by LONGEST CODE FIRST to prevent prefix collisions ($STRI before $STR)
+  const pairs = codebook.allPairs().sort((a, b) => b.code.length - a.code.length);
   for (const { code, text: pattern } of pairs) {
     text = text.replace(new RegExp(_escRe(code), 'g'), pattern);
+  }
+  // Unescape literal code tokens: \uE000K → $K, \uE001D → #D, etc.
+  // Process longest-first to prevent partial matches
+  const allCodes = codebook.allPairs().map(p => p.code);
+  const sortedCodes = [...allCodes].sort((a, b) => b.length - a.length);
+  for (const code of sortedCodes) {
+    const esc = code.startsWith('#') ? ESC_HASH : ESC_DOLLAR;
+    const escapedForm = `${esc}${code.slice(1)}`;
+    text = text.replace(new RegExp(_escRe(escapedForm), 'g'), code);
   }
   return text;
 }
