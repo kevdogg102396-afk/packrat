@@ -21,7 +21,7 @@
 - ReelRecipes: https://reelrecipes.vercel.app
 - ReelRecipes API: https://reelrecipes.vercel.app/api/recipes
 - FireSnipe: https://firesnipe.netlify.app
-- ClawdWorks: https://github.com/devuser/clawdworks-site
+- ClawdWorks: https://github.com/devuser/mycompany-site
 - PackRat: https://github.com/devuser/packrat
 - GrokBot: https://github.com/devuser/grokbot
 - npm: https://www.npmjs.com/package/packrat-compress
@@ -58,7 +58,7 @@
 ## Tools & Integrations
 - **Image generation**: Always use Gemini (free). NEVER use DALL-E or paid APIs.
 - **Browser control**: Chrome extension MCP. NOT Playwright.
-- **Telegram bot**: active, chat ID 8062428674
+- **Telegram bot**: active, chat ID 1234567890
 - **GitHub**: https://github.com/devuser — all repos public
 - **npm**: https://www.npmjs.com/~devuser — packrat-compress published
 

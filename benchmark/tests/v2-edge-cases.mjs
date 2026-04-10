@@ -161,7 +161,9 @@ console.log('');
 console.log('━━━ Group 3: Real-World Files (read-only) ━━━');
 
 // First, build a codebook from real memory files (but save to temp location)
-const realMemDir = 'C:/Users/kevdo/.claude/projects/C--Users-kevdo/memory';
+// Uses HOME env var to find memory dir — works on any machine, skips if not found
+const homeDir = process.env.HOME || process.env.USERPROFILE || '';
+const realMemDir = path.join(homeDir, '.claude', 'projects', 'C--Users-' + path.basename(homeDir), 'memory');
 const tempCbPath = './benchmark/output/temp-real-codebook.json';
 const realCb = new Codebook(tempCbPath);
 

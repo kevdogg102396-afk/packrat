@@ -291,7 +291,7 @@ export function learn(dirs, codebook, opts = {}) {
     pathFreq[clean] = (pathFreq[clean] || 0) + 1;
   }
 
-  // Also find common path PREFIXES (e.g., C:/Users/kevdo/ appears in many different full paths)
+  // Also find common path PREFIXES (e.g., C:/Users/dev/ appears in many different full paths)
   const prefixFreq = {};
   for (const p of Object.keys(pathFreq)) {
     // Split path and try progressively longer prefixes
