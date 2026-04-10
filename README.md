@@ -23,6 +23,8 @@ AI agents forget because memory bloats their context window. Every token costs m
 > MemPalace (23K stars) drops to 84.2% accuracy with compression.
 > PackRat: **100% accuracy. Always. Lossless is non-negotiable.**
 
+**[Full benchmark data with per-file results](benchmark/BENCHMARKS.md)**
+
 ## How It Works
 
 1. **Learn** — Scans your files. Extracts repeated paths, URLs, entities, and phrases. Scores each by `frequency x token_savings` using tiktoken.
