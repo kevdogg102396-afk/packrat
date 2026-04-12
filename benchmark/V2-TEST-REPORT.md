@@ -13,7 +13,7 @@
 | Real-World Memory Files (65 production files, read-only) | 65 | 65 | 0 | PASS |
 | CLAUDE.md Files (12 project configs, read-only) | 12 | 12 | 0 | PASS |
 | v1 Backward Compat (v1 codebook with v2 engine) | 12 | 12 | 0 | PASS |
-| Muxie Production Codebook Compat | 1 | 1 | 0 | PASS |
+| Production Codebook Compat | 1 | 1 | 0 | PASS |
 | **TOTAL** | **144** | **144** | **0** | **ALL PASS** |
 
 ## v1 vs v2 Comparison (Benchmark Corpus)
@@ -100,7 +100,7 @@ Verified: No secrets leaked into any generated codebook during testing.
 ## Backward Compatibility
 
 - v2 engine correctly loads and uses v1 codebooks (version 1 format)
-- v2 engine correctly loads and uses Muxie's production codebook
+- v2 engine correctly loads and uses a real production codebook
 - v1 codebook data structure is auto-upgraded (adds `paths: {}` section)
 - v2 header (`<!-- packrat:v2 -->`) doesn't break v1 decompression pattern
 

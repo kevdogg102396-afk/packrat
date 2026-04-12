@@ -93,12 +93,12 @@ Measured with tiktoken cl100k_base:
 | Pattern Type | Example | Original Tokens | Code Tokens | Savings Per Hit |
 |-------------|---------|-----------------|-------------|-----------------|
 | Windows file path | `C:/Users/dev/projects/app/` | 8 | 3 | **5** |
-| Deep file path | `C:/Users/dev/projects/reelrecipes/src/` | 12 | 3 | **9** |
-| Very deep path | `C:/Users/dev/Downloads/ComfyUI_portable/` | 19 | 3 | **16** |
+| Deep file path | `C:/Users/dev/projects/myapp/src/` | 12 | 3 | **9** |
+| Very deep path | `C:/Users/dev/Downloads/ImageGen_portable/` | 19 | 3 | **16** |
 | GitHub URL | `https://github.com/user/repo` | 14 | 3 | **11** |
 | Markdown header | `## CRITICAL REMINDERS` | 6 | 2 | **4** |
 | Multi-word phrase | `via OpenRouter for free` | 5 | 2 | **3** |
-| Tech name (multi-token) | `ReelRecipes` | 3 | 2 | **1** |
+| Tech name (multi-token) | `MyAppName` | 3 | 2 | **1** |
 | Tech name (single-token) | `JavaScript` | 1 | 3 | **-2** (rejected) |
 
 v2's token-aware scoring automatically rejects entries like "JavaScript" that cost tokens.
@@ -112,7 +112,7 @@ v2's token-aware scoring automatically rejects entries like "JavaScript" that co
 | Real-world files | 65 | Production AI agent memory files (read-only, no modification) |
 | CLAUDE.md files | 12 | Project config files across multiple repos |
 | v1 backward compat | 12 | v2 engine with v1 codebook format |
-| Production codebook | 1 | v2 engine with Muxie's live codebook |
+| Production codebook | 1 | v2 engine with a production codebook |
 
 ## How to Reproduce
 

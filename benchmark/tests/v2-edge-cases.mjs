@@ -128,7 +128,7 @@ console.log('');
 // ════════════════════════════════════════════
 console.log('━━━ Group 2: Stress Tests ━━━');
 
-test('stress', 'same word 200x', Array(200).fill('ReelRecipes').join(' '));
+test('stress', 'same word 200x', Array(200).fill('MyAppName').join(' '));
 test('stress', 'same path 100x', Array(100).fill('C:/Users/devuser/projects/test/').join('\n'));
 test('stress', 'same phrase 50x', Array(50).fill('via OpenRouter for free').join('. '));
 test('stress', '10K char single line', 'x'.repeat(10000));

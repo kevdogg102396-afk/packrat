@@ -32,14 +32,14 @@ AI agents forget because memory bloats their context window. Every token costs m
 3. **Read** — Any LLM reads the codebook header and understands the compressed file cold. No fine-tuning, no decoder.
 
 ```
-Original:  "Updated recipe import at C:/Users/dev/projects/reelrecipes/scripts/import.mjs"
+Original:  "Updated recipe import at C:/Users/dev/projects/myapp/scripts/import.mjs"
 Compressed: "Updated recipe import at $P3/scripts/import.mjs"
 
 Original:  "Deploy to Cloudflare Pages using TypeScript and React with Supabase"
 Compressed: "Deploy to $CF Pages using $TS and $RCT with $SB"
 ```
 
-The codebook: `$P3 = C:/Users/dev/projects/reelrecipes`, `$CF = Cloudflare`, etc.
+The codebook: `$P3 = C:/Users/dev/projects/myapp`, `$CF = Cloudflare`, etc.
 
 ### Where the Savings Come From
 
@@ -47,7 +47,7 @@ The codebook: `$P3 = C:/Users/dev/projects/reelrecipes`, `$CF = Cloudflare`, etc
 |-------------|---------|---------------------|
 | File paths | `C:/Users/dev/projects/app/src/` | **6-19 tokens** |
 | URLs | `https://github.com/user/repo` | **8-14 tokens** |
-| Long tech names | `ComfyUI_windows_portable` | **5-8 tokens** |
+| Long tech names | `ImageGen_portable` | **5-8 tokens** |
 | Repeated phrases | `via OpenRouter for free` | **2-3 tokens** |
 
 PackRat v2 automatically skips words that tokenizers already handle efficiently (like "JavaScript" = 1 token). Only patterns that **actually save tokens** make it into the codebook.
