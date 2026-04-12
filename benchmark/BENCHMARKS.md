@@ -1,3 +1,23 @@
+---
+language:
+- en
+pretty_name: PackRat v2 Compression Benchmarks
+tags:
+- text
+- compression
+- ai-memory
+- context-compression
+- token-optimization
+- obsidian
+- llm
+- lossless
+license: mit
+task_categories:
+- text-generation
+size_categories:
+- 1K<n<10K
+---
+
 # PackRat v2 Benchmarks
 
 **Version:** 2.0.0
@@ -35,36 +55,36 @@ PackRat trades peak compression for perfect fidelity. No information is ever los
 Tested on 65 markdown memory files totaling 249KB / 70,014 tokens.
 Codebook auto-learned from the same files (72 entries: 20 paths, 35 entities, 17 phrases).
 
-| File | Bytes | Tokens | Compressed Tokens | Token Savings | Round-Trip |
-|------|-------|--------|-------------------|---------------|------------|
-| telegram_channels.md | 782 | 197 | 163 | **17.3%** | PASS |
-| deployed_urls.md | 5,481 | 1,666 | 1,415 | **15.1%** | PASS |
-| nvidia_api_endpoints.md | 2,331 | 756 | 684 | **9.5%** | PASS |
-| comfyui-setup.md | 1,939 | 623 | 565 | **9.3%** | PASS |
-| anymodel_promo.md | 1,703 | 471 | 433 | **8.1%** | PASS |
-| mulerun-agents.md | 2,408 | 760 | 704 | **7.4%** | PASS |
-| feedback_nano_pictures.md | 585 | 143 | 133 | **7.0%** | PASS |
-| feedback_comfyui_mcp.md | 1,589 | 511 | 479 | **6.3%** | PASS |
-| session_state_2026_03_21.md | 1,934 | 568 | 532 | **6.3%** | PASS |
-| 3d_pipeline.md | 5,820 | 1,748 | 1,652 | **5.5%** | PASS |
-| PLATFORMS.md | 1,644 | 639 | 604 | **5.5%** | PASS |
-| opencli_rs.md | 2,056 | 590 | 564 | **4.4%** | PASS |
-| PROJECTS.md | 6,508 | 2,002 | 1,921 | **4.0%** | PASS |
-| grokbot_status.md | 2,143 | 621 | 597 | **3.9%** | PASS |
-| nemocode.md | 7,267 | 2,031 | 1,953 | **3.8%** | PASS |
-| git_hooks_installed.md | 1,576 | 420 | 405 | **3.6%** | PASS |
-| youtube_comment_adapter.md | 1,751 | 459 | 443 | **3.5%** | PASS |
-| MEMORY.md | 7,140 | 2,131 | 2,064 | **3.1%** | PASS |
-| anymodel.md | 3,313 | 1,027 | 996 | **3.0%** | PASS |
-| preston_plumbing.md | 1,163 | 302 | 293 | **3.0%** | PASS |
-| feedback_morning_surprise.md | 1,946 | 421 | 409 | **2.9%** | PASS |
-| local_image_gen.md | 4,822 | 1,671 | 1,625 | **2.8%** | PASS |
-| LESSONS.md | 13,814 | 3,776 | 3,715 | **1.6%** | PASS |
-| TASKS.md | 12,543 | 3,983 | 3,909 | **1.9%** | PASS |
-| reelrecipes.md | 35,578 | 9,555 | 9,540 | **0.2%** | PASS |
-| **TOTAL** | **249,111** | **70,014** | **68,317** | **2.4%** | **65/65 PASS** |
+| File | Type | Bytes | Tokens | Compressed | Savings | Round-Trip |
+|------|------|-------|--------|------------|---------|------------|
+| file_01 | urls/config | 782 | 197 | 163 | **17.3%** | PASS |
+| file_02 | urls/links | 5,481 | 1,666 | 1,415 | **15.1%** | PASS |
+| file_03 | api endpoints | 2,331 | 756 | 684 | **9.5%** | PASS |
+| file_04 | tool config | 1,939 | 623 | 565 | **9.3%** | PASS |
+| file_05 | promo tracking | 1,703 | 471 | 433 | **8.1%** | PASS |
+| file_06 | project notes | 2,408 | 760 | 704 | **7.4%** | PASS |
+| file_07 | feedback rule | 585 | 143 | 133 | **7.0%** | PASS |
+| file_08 | tool notes | 1,589 | 511 | 479 | **6.3%** | PASS |
+| file_09 | session state | 1,934 | 568 | 532 | **6.3%** | PASS |
+| file_10 | pipeline docs | 5,820 | 1,748 | 1,652 | **5.5%** | PASS |
+| file_11 | platform accts | 1,644 | 639 | 604 | **5.5%** | PASS |
+| file_12 | cli tool docs | 2,056 | 590 | 564 | **4.4%** | PASS |
+| file_13 | project index | 6,508 | 2,002 | 1,921 | **4.0%** | PASS |
+| file_14 | desktop app | 2,143 | 621 | 597 | **3.9%** | PASS |
+| file_15 | app reference | 7,267 | 2,031 | 1,953 | **3.8%** | PASS |
+| file_16 | git config | 1,576 | 420 | 405 | **3.6%** | PASS |
+| file_17 | integration | 1,751 | 459 | 443 | **3.5%** | PASS |
+| file_18 | memory index | 7,140 | 2,131 | 2,064 | **3.1%** | PASS |
+| file_19 | project docs | 3,313 | 1,027 | 996 | **3.0%** | PASS |
+| file_20 | client notes | 1,163 | 302 | 293 | **3.0%** | PASS |
+| file_21 | feedback rule | 1,946 | 421 | 409 | **2.9%** | PASS |
+| file_22 | tool research | 4,822 | 1,671 | 1,625 | **2.8%** | PASS |
+| file_23 | lessons log | 13,814 | 3,776 | 3,715 | **1.6%** | PASS |
+| file_24 | task tracker | 12,543 | 3,983 | 3,909 | **1.9%** | PASS |
+| file_25 | app deep-dive | 35,578 | 9,555 | 9,540 | **0.2%** | PASS |
+| **TOTAL** | **mixed** | **249,111** | **70,014** | **68,317** | **2.4%** | **65/65 PASS** |
 
-*25 of 65 files shown. All 65 files passed round-trip. Full results in benchmark/output/v2-test-results.json.*
+*25 of 65 files shown (sorted by savings). All 65 passed round-trip. Full results in data/v2-test-results.json.*
 
 ## Token Savings by Pattern Type
 
