@@ -35,24 +35,24 @@
 
 | File | Tokens | Comp Tokens | Savings |
 |------|--------|-------------|---------|
-| telegram_channels.md | 197 | 163 | **17.3%** |
-| deployed_urls.md | 1,666 | 1,415 | **15.1%** |
-| nvidia_api_endpoints.md | 756 | 684 | **9.5%** |
-| comfyui-setup.md | 623 | 565 | **9.3%** |
-| anymodel_promo.md | 471 | 433 | **8.1%** |
-| mulerun-agents.md | 760 | 704 | **7.4%** |
-| feedback_nano_pictures.md | 143 | 133 | **7.0%** |
-| feedback_comfyui_mcp.md | 511 | 479 | **6.3%** |
-| session_state_2026_03_21.md | 568 | 532 | **6.3%** |
-| PROJECTS.md | 2,002 | 1,921 | **4.0%** |
+| file_01 (urls/config) | 197 | 163 | **17.3%** |
+| file_02 (urls/links) | 1,666 | 1,415 | **15.1%** |
+| file_03 (api endpoints) | 756 | 684 | **9.5%** |
+| file_04 (tool config) | 623 | 565 | **9.3%** |
+| file_05 (promo tracking) | 471 | 433 | **8.1%** |
+| file_06 (project notes) | 760 | 704 | **7.4%** |
+| file_07 (feedback rule) | 143 | 133 | **7.0%** |
+| file_08 (tool notes) | 511 | 479 | **6.3%** |
+| file_09 (session state) | 568 | 532 | **6.3%** |
+| file_10 (project index) | 2,002 | 1,921 | **4.0%** |
 
 ### Files with Negative/Zero Savings (3 of 65)
 
 | File | Tokens | Comp Tokens | Savings | Why |
 |------|--------|-------------|---------|-----|
-| KEVIN.md | 379 | 380 | -0.3% | Small file, mostly prose, no paths |
-| reelrecipes-session-checkpoint.md | 391 | 392 | -0.3% | Session-specific, few repeating patterns |
-| packrat_plan.md | 1,399 | 1,413 | -1.0% | Dense technical content, entity codes cost slightly more |
+| file_37 (profile) | 379 | 380 | -0.3% | Small file, mostly prose, no paths |
+| file_59 (session checkpoint) | 391 | 392 | -0.3% | Session-specific, few repeating patterns |
+| file_53 (project plan) | 1,399 | 1,413 | -1.0% | Dense technical content, entity codes cost slightly more |
 
 ### Pattern Analysis
 

@@ -4,49 +4,49 @@
 
 | Project | Path | Status |
 |---------|------|--------|
-| **ReelRecipes** | `C:/Users/devuser/projects/reelrecipes/` | LIVE |
-| **FireSnipe** | `C:/Users/devuser/projects/firesnipe/` | LIVE on Netlify |
-| **MuleRun Agents** | `C:/Users/devuser/projects/mulerun-agents/` | Blocked on KYC |
-| **Proposal Forge** | `C:/Users/devuser/projects/proposal-forge/` | Working |
-| **GrokBot** | `C:/Users/devuser/projects/grokbot/` | Sprint 2 done |
+| **WebApp** | `C:/Users/devuser/projects/webapp/` | LIVE |
+| **AlertBot** | `C:/Users/devuser/projects/alertbot/` | LIVE |
+| **AgentRunner** | `C:/Users/devuser/projects/agent-runner/` | Blocked on KYC |
+| **ProposalGen** | `C:/Users/devuser/projects/proposal-gen/` | Working |
+| **DesktopPet** | `C:/Users/devuser/projects/desktop-pet/` | Sprint 2 done |
 
 ## Key Files
 - **Config:** `C:/Users/devuser/.config/config.json`
 - **Memory:** `C:/Users/devuser/.config/memory/`
 - **Python:** `C:/Users/devuser/AppData/Local/Programs/Python/Python312/python.exe`
 - **Skills:** `C:/Users/devuser/.claude/skills/`
-- **ComfyUI:** `C:/Users/devuser/Downloads/ComfyUI_windows_portable_nvidia/ComfyUI_windows_portable/`
+- **ImageGen:** `C:/Users/devuser/Downloads/ImageGen_windows_portable/ImageGen_portable/`
 
 ## Deployed URLs
-- ReelRecipes: https://reelrecipes.vercel.app
-- ReelRecipes API: https://reelrecipes.vercel.app/api/recipes
-- FireSnipe: https://firesnipe.netlify.app
-- ClawdWorks: https://github.com/devuser/mycompany-site
+- WebApp: https://webapp.vercel.app
+- WebApp API: https://webapp.vercel.app/api/items
+- AlertBot: https://alertbot.netlify.app
+- Portfolio: https://github.com/devuser/portfolio-site
 - PackRat: https://github.com/devuser/packrat
-- GrokBot: https://github.com/devuser/grokbot
+- DesktopPet: https://github.com/devuser/desktop-pet
 - npm: https://www.npmjs.com/package/packrat-compress
 
 ## Environment
 - Windows 11, Git Bash shell
-- TypeScript everywhere, React for frontend, Next.js for ReelRecipes
+- TypeScript everywhere, React for frontend, Next.js for WebApp
 - Supabase for database, Cloudflare Pages for hosting
 - Python at `C:/Users/devuser/AppData/Local/Programs/Python/Python312/python.exe`
 - Node.js available globally
-- ComfyUI portable at `C:/Users/devuser/Downloads/ComfyUI_windows_portable_nvidia/`
+- ImageGen portable at `C:/Users/devuser/Downloads/ImageGen_windows_portable/`
 
 ## Recent Changes (2026-04-10)
 
-### ReelRecipes
+### WebApp
 - Fixed middleware.ts bug (NEVER re-add middleware.ts)
-- Updated recipe import pipeline at `C:/Users/devuser/projects/reelrecipes/scripts/import.mjs`
-- Enhanced search in `C:/Users/devuser/projects/reelrecipes/src/app/search/page.tsx`
-- Added new API route: `C:/Users/devuser/projects/reelrecipes/src/app/api/recipes/route.ts`
+- Updated import pipeline at `C:/Users/devuser/projects/webapp/scripts/import.mjs`
+- Enhanced search in `C:/Users/devuser/projects/webapp/src/app/search/page.tsx`
+- Added new API route: `C:/Users/devuser/projects/webapp/src/app/api/items/route.ts`
 
-### GrokBot
+### DesktopPet
 - Sprint 2 complete: walking, chatting, emotions, personalities
-- Main source: `C:/Users/devuser/projects/grokbot/src-tauri/src/main.rs`
-- Frontend: `C:/Users/devuser/projects/grokbot/src/App.tsx`
-- Config: `C:/Users/devuser/projects/grokbot/src-tauri/tauri.conf.json`
+- Main source: `C:/Users/devuser/projects/desktop-pet/src-tauri/src/main.rs`
+- Frontend: `C:/Users/devuser/projects/desktop-pet/src/App.tsx`
+- Config: `C:/Users/devuser/projects/desktop-pet/src-tauri/tauri.conf.json`
 
 ### PackRat
 - Fixed case-insensitive matching bug
@@ -68,12 +68,12 @@
 3. Verify work visually before saying "it's done"
 4. NEVER deploy to Netlify — use Cloudflare Pages or GitHub Pages
 5. Complete tasks end-to-end — never hand off half-finished work
-6. ReelRecipes: NEVER re-add middleware.ts
+6. WebApp: NEVER re-add middleware.ts
 7. Python path: `C:/Users/devuser/AppData/Local/Programs/Python/Python312/python.exe`
-8. ComfyUI path: `C:/Users/devuser/Downloads/ComfyUI_windows_portable_nvidia/ComfyUI_windows_portable/`
+8. ImageGen path: `C:/Users/devuser/Downloads/ImageGen_windows_portable/ImageGen_portable/`
 
 ## Lessons Learned
-- middleware.ts in ReelRecipes caused infinite redirects — NEVER re-add it
+- middleware.ts in WebApp caused infinite redirects — NEVER re-add it
 - Netlify deployed rogue sites from compromised agents — banned forever
 - Always save deployed URLs to memory IMMEDIATELY after deploy
 - Triple-check all public-facing work (commits, links, secrets)
@@ -84,7 +84,7 @@
 - Supabase for auth and database
 - Cloudflare Pages for static hosting (free tier)
 - GitHub Pages for documentation sites
-- Vercel ONLY for ReelRecipes (paid plan)
+- Vercel ONLY for WebApp (paid plan)
 - OpenRouter for free AI model access via API
-- ComfyUI at `C:/Users/devuser/Downloads/ComfyUI_windows_portable_nvidia/` for local image gen
+- ImageGen at `C:/Users/devuser/Downloads/ImageGen_windows_portable/` for local image gen
 - Python at `C:/Users/devuser/AppData/Local/Programs/Python/Python312/python.exe` for scripts
