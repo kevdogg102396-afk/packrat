@@ -22,7 +22,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kevdogg102396-afk/packrat"
+    "url": "git+https://github.com/kevdogg102396-afk/packrat.git"
   },
   "engines": {
     "node": ">=18.0.0"
