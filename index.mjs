@@ -23,7 +23,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { execSync } from 'node:child_process';
+import { execFileSync } from 'node:child_process';
 
 // ─── Constants ───
 
@@ -91,8 +91,11 @@ export function countTokens(text) {
     }
 
     if (scriptPath) {
-      const result = execSync(
-        `"${PYTHON_PATH}" "${scriptPath}"`,
+      // execFileSync — no shell, so PYTHON_PATH can't be command-injected
+      // even if the env var contains quotes, spaces, or shell metacharacters.
+      const result = execFileSync(
+        PYTHON_PATH,
+        [scriptPath],
         { input: text, encoding: 'utf-8', maxBuffer: 10 * 1024 * 1024, timeout: 10000 }
       );
       count = parseInt(result.trim());
@@ -142,8 +145,9 @@ function countTokensBatch(texts) {
     if (scriptPath) {
       // Use JSON batch mode: send array, get array back
       const batchInput = JSON.stringify(uncached);
-      const result = execSync(
-        `"${PYTHON_PATH}" "${scriptPath}" --batch`,
+      const result = execFileSync(
+        PYTHON_PATH,
+        [scriptPath, '--batch'],
         { input: batchInput, encoding: 'utf-8', maxBuffer: 50 * 1024 * 1024, timeout: 30000 }
       );
       const counts = JSON.parse(result.trim());
