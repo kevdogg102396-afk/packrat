@@ -65,7 +65,12 @@ switch (cmd) {
     const cb = ensureCodebook();
     const content = fs.readFileSync(file, 'utf-8');
     const expanded = decompress(content, cb);
-    const outPath = file.replace(/\.pr\.md$/, '.expanded.md').replace(/\.md$/, '.expanded.md');
+    // If the input is foo.pr.md, output is foo.expanded.md; otherwise append
+    // .expanded.md to the base name. The previous chained .replace double-
+    // stacked (sample.pr.md → sample.expanded.expanded.md).
+    const outPath = file.endsWith('.pr.md')
+      ? file.replace(/\.pr\.md$/, '.expanded.md')
+      : file.replace(/\.md$/, '.expanded.md');
     fs.writeFileSync(outPath, expanded);
     console.log(`Decompressed: ${file} → ${outPath}`);
     break;
@@ -82,9 +87,9 @@ switch (cmd) {
     console.log(`Phrases:  ${s.phrases}`);
     console.log(`Total:    ${s.total}`);
     console.log('');
-    console.log('Top entries by savings:');
-    for (const e of s.topEntries) {
-      console.log(`  ${e.code} = ${e.text} (saves ${e.savings} chars/hit)`);
+    console.log('Top entries by token savings:');
+    for (const e of (s.topByTokenSavings || [])) {
+      console.log(`  ${e.code} = ${e.text} (saves ${e.tokenSavings} tokens/hit)`);
     }
     break;
   }
